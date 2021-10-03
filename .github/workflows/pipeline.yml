@@ -30,11 +30,11 @@ jobs:
     environment: 
       name: DEV
       url: https://ibm-dev.crm4.dynamics.com
-    with:
-      issue-number: 574
-      body: |
-        Ticket 574 correction anomalie fiche system user
-      reactions: '+1'
+    #with:
+    #  issue-number: 574
+    #  body: |
+    #    Ticket 574 correction anomalie fiche system user
+    #  reactions: '+1'
     env:
       RUNNER_DEBUG: 1
 
