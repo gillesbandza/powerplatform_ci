@@ -30,11 +30,6 @@ jobs:
     environment: 
       name: DEV
       url: https://ibm-dev.crm4.dynamics.com
-    #with:
-    #  issue-number: 574
-    #  body: |
-    #    Ticket 574 correction anomalie fiche system user
-    #  reactions: '+1'
     env:
       RUNNER_DEBUG: 1
 
@@ -73,11 +68,6 @@ jobs:
     environment:
       name: UAT
       url: https://ibm-uat.crm4.dynamics.com
-    #with:
-    #  issue-number: 574
-    #  body: |
-    #    Ticket 574 correction anomalie fiche system user
-    #  reactions: '+1'
     env:
       RUNNER_DEBUG: 1
 
@@ -108,11 +98,6 @@ jobs:
     environment: 
       name: PROD
       url: https://ibm.crm4.dynamics.com
-    with:
-      issue-number: 574
-      body: |
-        Ticket 574 correction anomalie fiche system user
-      reactions: '+1'
     env:
       RUNNER_DEBUG: 1
 
@@ -124,6 +109,10 @@ jobs:
       - name: Fetch the ready to ship solution from GH artifact store
         uses: actions/download-artifact@v2
         with:
+          issue-number: 574
+          body: |
+            Ticket 574 correction anomalie fiche system user
+          reactions: '+1'
           name: managedSolutions
           path: out/release/
 
