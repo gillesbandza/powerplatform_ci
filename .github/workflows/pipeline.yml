@@ -25,9 +25,11 @@ env:
 
 jobs:
   export-from-dev:
-    name: Build
+    name: BUILD
     runs-on: windows-latest
-    environment: DEV
+    environment: 
+      name: DEV
+      url: https://rtekiwidev.crm4.dynamics.com/
     env:
       RUNNER_DEBUG: 1
 
@@ -60,9 +62,12 @@ jobs:
           path: ${{ env.solution_exported_folder }}/${{ github.event.inputs.solution_name }}.zip
 
   release-to-staging:
+    name: STAGING
     needs: [ export-from-dev ]
     runs-on: windows-latest
-    environment: UAT
+    environment:
+      name: UAT
+      url: https://kiwi-rte-uat.crm4.dynamics.com
     env:
       RUNNER_DEBUG: 1
 
