@@ -1,0 +1,34 @@
+name: wait
+on:
+  workflow_dispatch:
+    inputs:
+      solution_name:
+        description: 'name of the solution to worked on from Power Platform'
+        required: true
+        default: test
+  release:
+    types: [created]
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: test
+    environment: 
+      name: PROD
+      url: https://ibm.crm4.dynamics.com
+    steps:
+      - name: review
+        uses: buildsville/review-summary@v1
+        id: summary
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: print review summary
+        run: |
+          echo "APPROVE: ${{ steps.summary.outputs.approved }}"
+          echo "REQUEST_CHANGES: ${{ steps.summary.outputs.changes_requested }}"
+          echo "COMMENT: ${{ steps.summary.outputs.commented }}"
+          echo "PENDING: ${{ steps.summary.outputs.pending }}"
+      - name: print if more than 2 approve
+        if: steps.summary.outputs.approved > 2
+        run: |
+          echo "Got more than 2 approve!!!"
