@@ -12,6 +12,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      output1: bim
+      output2: bam
     name: test
     environment: 
       name: PROD
