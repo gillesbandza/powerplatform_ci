@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: deploy-solution
+name: deploy-FSK
 
 # Export solution from DEV environment
 #  unpack it and prepare, commit and push a git branch with the changes
