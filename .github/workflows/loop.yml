@@ -2,7 +2,7 @@ name: make-loop
 on:
   workflow_dispatch:
 jobs:
-  loop:
+  install:
     strategy:
       matrix:
         solutions: [FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes]
@@ -10,5 +10,5 @@ jobs:
     steps:
       - name: deploy
         run: |
-          echo ${{ matrix.solutions }} oki
+          echo Deploying solution ${{ matrix.solutions }} !
 
