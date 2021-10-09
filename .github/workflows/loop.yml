@@ -1,5 +1,8 @@
+name: make-loop
+on:
+  workflow_dispatch:
 jobs:
-  loopcheck:
+  loop:
     strategy:
       matrix:
         scssfiles: [fileone,file2]
