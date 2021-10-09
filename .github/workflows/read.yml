@@ -1,19 +1,20 @@
-name: "Read file contents"
-
-on: [push, pull_request]
-
+name: build
+on: push
 jobs:
-  file_contents:
+  job1:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v1
+    - id: set-matrix
+      run: |
+        JSON=$(cat ./your.json)
+        echo "::set-output name=matrix::${JSON//'%'/'%25'}"
 
-      - name: Read file contents
-        id: read_file
-        uses: andstor/file-reader-action@v1
-        with:
-          path: "package.json"
-
-      - name: File contents
-        run: echo "${ steps.read_file.outputs.contents }"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+    steps:
+    - run: build
