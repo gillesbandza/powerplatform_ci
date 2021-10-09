@@ -1,6 +1,6 @@
 name: Test linux job
 on:
-  push
+  workflow_dispatch
 
 jobs:
   testJob:
