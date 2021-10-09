@@ -8,7 +8,7 @@ jobs:
         solutions: [FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes]
     runs-on: [ubuntu-latest]
     steps:
-      - name: test
+      - name: deploy
         run: |
           echo ${{ matrix.solutions }} oki
 
