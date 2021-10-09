@@ -5,10 +5,10 @@ jobs:
   loop:
     strategy:
       matrix:
-        scssfiles: [fileone,file2]
+        solutions: [FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes]
     runs-on: [ubuntu-latest]
     steps:
       - name: test
         run: |
-          echo ${{ matrix.scssfiles }} oki
+          echo ${{ matrix.solutions }} oki
 
