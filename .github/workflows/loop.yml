@@ -1,0 +1,16 @@
+jobs:
+  loopcheck:
+    strategy:
+      matrix:
+        scssfiles: [fileone,file2]
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: test
+        run: |
+          echo ${{ matrix.scssfiles }}.scss
+      - uses: actions/checkout@v1
+      - name: Compile .css from .scss
+        uses: gha-utilities/sass-build@v0.1.6
+        with:
+          source: scss/${{ matrix.scssfiles }}.scss
+          destination: css/${{ matrix.scssfiles }}.css
