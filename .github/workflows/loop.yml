@@ -6,12 +6,12 @@ on:
       solution_name:
         description: 'name of the solution to worked on from Power Platform'
         required: true
-        default: [FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes]
+        default: FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes
 jobs:
   install:
     strategy:
       matrix:
-        solutions: ${{ github.event.inputs.solution_name }} #[FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes]
+        solutions: [FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes]
     runs-on: [ubuntu-latest]
     steps:
       - name: deploy
