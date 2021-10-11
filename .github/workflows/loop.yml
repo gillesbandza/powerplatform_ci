@@ -1,10 +1,10 @@
-name: make-loop
+name: loop
 on:
   workflow_dispatch:
     inputs:
       # Change this value
       solution_name:
-        description: 'name of the solution to worked on from Power Platform'
+        description: 'Name of the solution to worked on from Power Platform'
         required: true
         default: FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes
 jobs:
