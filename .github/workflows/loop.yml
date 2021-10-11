@@ -17,4 +17,6 @@ jobs:
       - name: deploy
         run: |
           echo Deploying solution ${{ matrix.solutions }} !
+      - run: date
+      - run: sleep 3000
 
