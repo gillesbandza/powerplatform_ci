@@ -8,7 +8,9 @@ on:
         required: true
         default: FSK_Webresources, FSK_Entities, FSK_Plugins, FSK_Processes
 jobs:
-  install:
+  context:
+  #install:
+    name: installm
     strategy:
       max-parallel: 1
       matrix:
