@@ -10,7 +10,7 @@ on:
 jobs:
   context:
   #install:
-    name: installm
+    name: install solution
     strategy:
       max-parallel: 1
       matrix:
